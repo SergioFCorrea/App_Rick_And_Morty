@@ -1,6 +1,7 @@
 import "./App.css";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
+import Favorites from "./components/Favorites";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -24,8 +25,7 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
   const EMAIL = "serfabian619@gmail.com";
-  const PASSWORD = "contraseña";
-
+  const PASSWORD = "c";
 
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -35,23 +35,8 @@ function App() {
   };
 
   useEffect(() => {
-    !access && navigate('/');
- }, [access]);
-
-//  const [userData, setUserData] = useState({
-//     email: "",
-//     password: "",
-//   });
-//   const [errors, setErrors] = useState({})
-
-  // const handleChange = (event) => {
-  //   setUserData({
-  //     ...userData,
-  //     [event.target.name]: event.target.value
-  //   });
-  // };
-
-
+    !access && navigate("/");
+  }, [access]);
 
   const onSearch = (id) => {
     axios(`${URL_BASE}/${id}?key=${API}`).then(({ data }) => {
@@ -73,9 +58,15 @@ function App() {
   return (
     <div className="App">
       {location.pathname !== "/" ? (
-        <Nav onSearch={onSearch} currentPath={location.pathname} />
+        <Nav
+          onSearch={onSearch}
+          currentPath={location.pathname}
+          access={access}
+          setAccess={setAccess}
+        />
       ) : null}
       <Routes>
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/home"

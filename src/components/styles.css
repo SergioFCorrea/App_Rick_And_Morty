@@ -103,7 +103,7 @@
   justify-content: center;
   box-shadow: 0 2px 4px black;
   width: 400px;
-  border: solid #77ff00;
+  border: solid #2a5447;
   border-width: 2px;
 }
 
@@ -131,7 +131,7 @@
   transform: translate(-50%, -50%);
   margin: 0 auto;
   padding: 40px;
-  box-shadow: 0 0 40px #77ff00;
+  box-shadow: 0 0 40px rgba(119, 225, 0, 0.7);
 }
 
 .form-img{
@@ -146,6 +146,8 @@
   height: 40px;
   border-radius: 18px;
   box-shadow: 0 4px 4px black;
+  border: solid #2a5447;
+  border-width: 2px;
 }
 
 .label{
